@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Opa Reminders",
+  "version": "0.1.0",
+  "description": "Lembretes integrados ao Opa! Suite",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "dist/background/background.js"
+  },
+  "action": {
+    "default_popup": "dist/popup/popup.html",
+    "default_title": "Opa Reminders"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dist/content/content_script.js"]
+    }
+  ]
+}
