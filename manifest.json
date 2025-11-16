@@ -1,26 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "Opa Reminders",
-  "version": "0.1.0",
-  "description": "Lembretes integrados ao Opa! Suite",
+  "name": "Opa! Reminders",
+  "version": "2.0.0",
+  "description": "Gerenciador de lembretes e agendamentos com notificações",
   "permissions": [
-    "storage",
     "alarms",
+    "storage",
     "notifications",
+    "tabs",
     "activeTab",
     "scripting"
   ],
   "background": {
-    "service_worker": "dist/background/background.js"
-  },
-  "action": {
-    "default_popup": "dist/popup/popup.html",
-    "default_title": "Opa Reminders"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["dist/content/content_script.js"]
+      "matches": ["https://suporte.ixcsoft.com.br/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
     }
   ]
 }
+
